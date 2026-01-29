@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Academy - Learn Artificial Intelligence</title>
+    <style>
+        :root {
+            --color-primary: #4f46e5;
+            --color-primary-dark: #4338ca;
+            --color-text: #1f2937;
+            --color-text-light: #6b7280;
+            --color-bg: #ffffff;
+            --color-bg-alt: #f9fafb;
+            --color-border: #e5e7eb;
+            --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            --max-width: 1200px;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --transition: 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-light);
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: calc(var(--spacing-xl) + 60px) var(--spacing-md) var(--spacing-xl);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text);
+        }
+
+        .hero-content h1 span {
+            color: var(--color-primary);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-md);
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-primary);
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background var(--transition), transform var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .hero-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Topics Section */
+        .section {
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .section-alt {
+            background: var(--color-bg-alt);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--color-text-light);
+            font-size: 1.125rem;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .topic-card {
+            background: var(--color-bg);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-border);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .topic-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .feature {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--color-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-sm);
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: var(--spacing-md);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--color-primary);
+        }
+
+        .cta .btn:hover {
+            background: var(--color-bg-alt);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-text);
+            color: white;
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+
+        .footer-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-sm);
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #9ca3af;
+            transition: color var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: var(--spacing-md) auto 0;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: calc(var(--spacing-lg) + 60px);
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-image {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: block;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">AI Academy</a>
+            <ul class="nav-links">
+                <li><a href="#topics">Topics</a></li>
+                <li><a href="#features">Why Learn</a></li>
+                <li><a href="#enroll">Enroll</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Master the Future with <span>Artificial Intelligence</span></h1>
+            <p>Learn AI from fundamentals to advanced concepts. Build real-world projects and join the next generation of tech leaders.</p>
+            <a href="#enroll" class="btn">Start Learning</a>
+            <a href="#topics" class="btn btn-outline">Explore Topics</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://placehold.co/600x400/4f46e5/ffffff?text=AI+Learning" alt="AI Learning Illustration">
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section class="section section-alt" id="topics">
+        <div class="container">
+            <div class="section-header">
+                <h2>What You'll Learn</h2>
+                <p>Comprehensive curriculum covering all aspects of artificial intelligence</p>
+            </div>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <img src="https://placehold.co/400x200/6366f1/ffffff?text=Machine+Learning" alt="Machine Learning">
+                    <h3>Machine Learning</h3>
+                    <p>Understand algorithms that learn from data, including supervised, unsupervised, and reinforcement learning techniques.</p>
+                </div>
+                <div class="topic-card">
+                    <img src="https://placehold.co/400x200/8b5cf6/ffffff?text=Neural+Networks" alt="Neural Networks">
+                    <h3>Neural Networks</h3>
+                    <p>Dive deep into deep learning architectures, from perceptrons to transformers and beyond.</p>
+                </div>
+                <div class="topic-card">
+                    <img src="https://placehold.co/400x200/a855f7/ffffff?text=NLP" alt="Natural Language Processing">
+                    <h3>Natural Language Processing</h3>
+                    <p>Build systems that understand and generate human language using cutting-edge NLP techniques.</p>
+                </div>
+                <div class="topic-card">
+                    <img src="https://placehold.co/400x200/7c3aed/ffffff?text=Computer+Vision" alt="Computer Vision">
+                    <h3>Computer Vision</h3>
+                    <p>Create applications that can see and interpret visual information from images and video.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Learn AI With Us</h2>
+                <p>Everything you need to succeed in your AI journey</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <h3>Expert Curriculum</h3>
+                    <p>Courses designed by industry professionals and academic researchers at the forefront of AI.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Hands-On Projects</h3>
+                    <p>Build real AI applications with practical projects that reinforce your learning.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3>Community Support</h3>
+                    <p>Join a vibrant community of learners and mentors to help you along your journey.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                    </div>
+                    <h3>Certification</h3>
+                    <p>Earn industry-recognized certificates to showcase your AI expertise to employers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="enroll">
+        <h2>Ready to Start Your AI Journey?</h2>
+        <p>Join thousands of students already learning artificial intelligence. Begin your transformation today.</p>
+        <a href="#" class="btn">Enroll Now - It's Free</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AI Academy</h4>
+                <p style="color: #9ca3af; font-size: 0.875rem;">Empowering the next generation of AI professionals through world-class education.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="#">Forums</a></li>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AI Academy. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
