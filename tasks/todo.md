@@ -1,51 +1,34 @@
-# AI Educational Website - Todo
+# Website Update - Match Inspiration Image
 
 ## Plan
-Create a single-page AI educational website with modern, minimal design aesthetics.
+Update the AI Academy website to match the inspiration image design with cleaner, more minimal styling.
 
 ## Tasks
 
-- [x] Create `index.html` file with embedded CSS
-- [x] Implement fixed navigation with logo and links
-- [x] Build hero section with headline, subtext, CTA buttons, and placeholder image
-- [x] Create topics grid with 4 AI topic cards (ML, Neural Networks, NLP, Computer Vision)
-- [x] Add features/benefits section with SVG icons
-- [x] Implement CTA section with gradient background
-- [x] Build footer with 4-column layout
-- [x] Add CSS variables for theming
-- [x] Implement smooth hover transitions
-- [x] Add mobile responsive breakpoints (768px)
-- [x] Use placehold.co for placeholder images
-
----
+- [x] Update color scheme to darker/neutral tones (dark gray primary instead of purple)
+- [x] Update navigation: change links to "About, Courses, Features, Contact" and add "Get Started" button
+- [x] Add folder icon next to logo
+- [x] Update hero title to "AI Learning Documentation."
+- [x] Update hero subtitle to match inspiration text
+- [x] Update hero buttons: "Start Learning" (dark) and "Learn More" (outline)
+- [x] Update hero image to document-style preview
+- [x] Rename "Why Learn AI With Us" to "Why Learn AI Now?" with new subtitle
 
 ## Review
 
 ### Summary of Changes
-Created a complete single-page AI educational website (`index.html`) with the following:
+Updated the AI Academy website to match the inspiration image with a cleaner, more minimal design.
 
-### Structure
-1. **Navigation** - Fixed header with backdrop blur, logo "AI Academy", and 3 nav links
-2. **Hero Section** - Two-column grid with headline, description, dual CTA buttons, and hero image
-3. **Topics Grid** - 4 responsive cards covering core AI topics with images and descriptions
-4. **Features Section** - 4 benefit items with inline SVG icons
-5. **CTA Section** - Gradient purple background with enrollment call-to-action
-6. **Footer** - 4-column responsive grid with links and copyright
+### Changes Made
+1. **Color scheme** - Changed primary color from purple (#4f46e5) to dark gray (#1f2937)
+2. **Navigation** - Updated links to "About, Courses, Features, Contact" and added "Get Started" button
+3. **Logo** - Added orange folder icon next to "AI Academy" text
+4. **Hero title** - Changed to "AI Learning Documentation." with simpler styling
+5. **Hero subtitle** - Updated text about comprehensive AI education resources
+6. **Buttons** - "Learn More" button now has light gray outline instead of purple
+7. **Hero image** - Styled with subtle border and lighter shadow for document-like appearance
+8. **Feature icons** - Changed from filled purple background to light gray with border
+9. **Section title** - Changed "Why Learn AI With Us" to "Why Learn AI Now?" with new subtitle
 
-### Technical Implementation
-- **CSS Variables**: Defined color palette, spacing, and transitions for easy theming
-- **Typography**: System font stack (`-apple-system, BlinkMacSystemFont, 'Segoe UI'...`)
-- **Colors**: Neutral palette with deep indigo accent (`#4f46e5`)
-- **Layout**: CSS Grid and Flexbox for responsive layouts
-- **Responsiveness**: Mobile breakpoint at 768px with adjusted typography and single-column layouts
-- **Transitions**: Smooth 0.2s ease transitions on hover states
-- **No external dependencies**: All CSS embedded, SVG icons inline
-
-### Files Created
-- `index.html` - Complete single-page website (all HTML + CSS in one file)
-- `tasks/todo.md` - This task tracking file
-
-### Verification
-- Open `index.html` in browser to view the website
-- Resize browser window to test responsive behavior
-- All placeholder images load from placehold.co
+### Files Modified
+- `index.html` - All styling and content updates
